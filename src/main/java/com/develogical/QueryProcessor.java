@@ -68,11 +68,11 @@ public class QueryProcessor {
                 Integer val = Integer.valueOf(res[i].trim());
                 if(isPrime(val)) {
                     sb.append(res[i].trim());
-                    sb.append(',');
+                    sb.append(", ");
                 }
             }
 
-            if(sb.length() > 0) sb.delete(sb.length() -1, sb.length());
+            if(sb.length() > 0) sb.delete(sb.length() -2, sb.length());
 
             return "";
         }// what is 9 multiplied by 11

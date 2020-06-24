@@ -20,7 +20,7 @@ public class QueryProcessor {
             String[] res = query.toLowerCase().replace("what is ", "").split(" plus ");
             if(res.length == 0) return "";
 
-            return String.valueOf(Integer.valueOf(res[0]) + Integer.valueOf(res[1]));
+            return String.valueOf(Integer.valueOf(res[0].trim()) + Integer.valueOf(res[1].trim()));
         }//which of the following numbers is the largest:
         else if (query.toLowerCase().contains("which of the following numbers is the largest: ")) {
             String[] res = query.toLowerCase().replace("which of the following numbers is the largest: ", "").split(",");
@@ -28,7 +28,7 @@ public class QueryProcessor {
 
             Integer[] arr = new Integer[res.length];
             for(int i=0;i<res.length;i++){
-                arr[i] = Integer.valueOf(res[i]);
+                arr[i] = Integer.valueOf(res[i].trim());
             }
             Arrays.sort(arr);
 
@@ -38,13 +38,7 @@ public class QueryProcessor {
             String[] res = query.toLowerCase().replace("what is ", "").split(" multiplied by ");
             if(res.length == 0) return "";
 
-            return String.valueOf(Integer.valueOf(res[0]) * Integer.valueOf(res[1]));
-        }// what%20colour%20is%20a%20banana
-        else if (query.toLowerCase().contains("what is ") && query.toLowerCase().contains(" multiplied by ") ) {
-            String[] res = query.toLowerCase().replace("what is ", "").split(" multiplied by ");
-            if(res.length == 0) return "";
-
-            return String.valueOf(Integer.valueOf(res[0]) * Integer.valueOf(res[1]));
+            return String.valueOf(Integer.valueOf(res[0].trim()) * Integer.valueOf(res[1].trim()));
         }
 
 

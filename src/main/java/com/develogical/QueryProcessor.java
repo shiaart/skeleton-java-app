@@ -23,7 +23,7 @@ public class QueryProcessor {
             return String.valueOf(Integer.valueOf(res[0].trim()) + Integer.valueOf(res[1].trim()));
         }//which of the following numbers is the largest:
         else if (query.toLowerCase().contains("which of the following numbers is the largest: ")) {
-            String[] res = query.toLowerCase().replace("which of the following numbers is the largest: ", "").split(",");
+            String[] res = query.toLowerCase().split("which of the following numbers is the largest: ")[1].split(",");
             if(res.length == 0) return "";
 
             Integer[] arr = new Integer[res.length];

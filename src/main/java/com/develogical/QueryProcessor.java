@@ -9,6 +9,9 @@ public class QueryProcessor {
     public String process(String query) {
         if (query.toLowerCase().contains("romeo and juliet")) {
             return "William Shakespeare";
+        }//
+        else if (query.toLowerCase().contains("what colour is a banana")) {
+            return "yellow";
         }
         else if (query.toLowerCase().contains("what is your name")) {
             return "Artem";
@@ -36,7 +39,14 @@ public class QueryProcessor {
             if(res.length == 0) return "";
 
             return String.valueOf(Integer.valueOf(res[0]) * Integer.valueOf(res[1]));
+        }// what%20colour%20is%20a%20banana
+        else if (query.toLowerCase().contains("what is ") && query.toLowerCase().contains(" multiplied by ") ) {
+            String[] res = query.toLowerCase().replace("what is ", "").split(" multiplied by ");
+            if(res.length == 0) return "";
+
+            return String.valueOf(Integer.valueOf(res[0]) * Integer.valueOf(res[1]));
         }
+
 
         return "";
     }

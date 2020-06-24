@@ -24,7 +24,10 @@ public class QueryProcessor {
     public String process(String query) {
         if (query.toLowerCase().contains("romeo and juliet")) {
             return "William Shakespeare";
-        }//
+        }//which city is the Eiffel tower in
+        else if (query.toLowerCase().contains("which city is the Eiffel tower in")) {
+            return "Paris";
+        }
         else if (query.toLowerCase().contains("what colour is a banana")) {
             return "yellow";
         }

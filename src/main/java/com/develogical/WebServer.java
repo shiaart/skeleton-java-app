@@ -43,7 +43,7 @@ public class WebServer {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
       new StatusPage().writeTo(resp);
     }
-  }
+  } 
 
   private Integer portNumberToUse() {
     return System.getenv("PORT") != null ? Integer.valueOf(System.getenv("PORT")) : 5000;

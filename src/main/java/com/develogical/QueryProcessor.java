@@ -6,6 +6,21 @@ import java.util.Arrays;
 
 public class QueryProcessor {
 
+    public boolean isPrime(Integer num){
+        boolean flag = false;
+        for(int i = 2; i <= num/2; ++i)
+        {
+            // condition for nonprime number
+            if(num % i == 0)
+            {
+                flag = true;
+                break;
+            }
+        }
+
+        return flag;
+    }
+
     public String process(String query) {
         if (query.toLowerCase().contains("romeo and juliet")) {
             return "William Shakespeare";
@@ -35,12 +50,24 @@ public class QueryProcessor {
             return String.valueOf(arr[arr.length-1]);
         }// what is 9 multiplied by 11
         else if (query.toLowerCase().contains("what is ") && query.toLowerCase().contains(" multiplied by ") ) {
-            String[] res = query.toLowerCase().replace("what is ", "").split(" multiplied by ");
+            String[] res = query.toLowerCase().split("what is ")[1].split(" multiplied by ");
             if(res.length == 0) return "";
 
             return String.valueOf(Integer.valueOf(res[0].trim()) * Integer.valueOf(res[1].trim()));
-        }
+        }//8fb83930: which of the following numbers are primes: 112, 491
+        else if (query.toLowerCase().contains("which of the following numbers are primes: ")) {
+            String[] res = query.toLowerCase().split("which of the following numbers are primes: ")[1].split(",");
+            if(res.length == 0) return "";
 
+            Integer[] arr = new Integer[res.length];
+            for(int i=0;i<res.length;i++){
+                Integer val = Integer.valueOf(res[i].trim());
+                if(isPrime(val)) return res[i].trim();
+            }
+
+
+            return "";
+        }// what is 9 multiplied by 11
 
         return "";
     }

@@ -30,8 +30,13 @@ public class QueryProcessor {
             Arrays.sort(arr);
 
             return String.valueOf(arr[arr.length-1]);
-        }
+        }// what is 9 multiplied by 11
+        else if (query.toLowerCase().contains("what is ") && query.toLowerCase().contains(" multiplied by ") ) {
+            String[] res = query.toLowerCase().replace("what is ", "").split(" multiplied by ");
+            if(res.length == 0) return "";
 
+            return String.valueOf(Integer.valueOf(res[0]) * Integer.valueOf(res[1]));
+        }
 
         return "";
     }

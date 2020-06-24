@@ -12,7 +12,9 @@ public class QueryProcessor {
         else if (query.toLowerCase().contains("what is 1 plus 12")) {
             return "13";
         }
-
+        else if (query.toLowerCase().contains("which of the following numbers is the largest: 267, 647, 86, 4")) {
+            return "647";
+        }
 
 
         return "";

@@ -74,7 +74,7 @@ public class QueryProcessor {
 
             if(sb.length() > 0) sb.delete(sb.length() -2, sb.length());
 
-            return "";
+            return sb.toString();
         }// what is 9 multiplied by 11
 
         return "";

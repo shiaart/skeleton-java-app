@@ -63,11 +63,16 @@ public class QueryProcessor {
             if(res.length == 0) return "";
 
             Integer[] arr = new Integer[res.length];
+            StringBuilder sb = new StringBuilder();
             for(int i=0;i<res.length;i++){
                 Integer val = Integer.valueOf(res[i].trim());
-                if(isPrime(val)) return res[i].trim();
+                if(isPrime(val)) {
+                    sb.append(res[i].trim());
+                    sb.append(',');
+                }
             }
 
+            if(sb.length() > 0) sb.delete(sb.length() -1, sb.length());
 
             return "";
         }// what is 9 multiplied by 11
